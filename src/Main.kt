@@ -122,7 +122,28 @@ fun bouncingBall(h:Double, bounce:Double, window:Double):Int {
 
 
 fun orderWeight(string:String):String {
-  // your code
+  var weight = string.split(' ')
+ // var weightMap = sortedMapOf<String, String>()
+  val weightList = mutableListOf(0 to "z")
+
+  for(eachWeight in weight){
+    if(eachWeight.isNotBlank()){
+      var tempWeigth=0
+      for(char:Char in eachWeight){
+        tempWeigth += char.toInt()-48
+      }
+
+      weightList.add(tempWeigth to eachWeight)     //(tempWeigth,eachWeight)
+    }
+    weightList.sortWith(compareBy({it.first}, {it.second}))
+
+
+  }
+  weightList.remove(0 to "z")
+  println(weightList.)
+//  println(weightMap.keys)
+//  println(weightMap.values)
+  return ("goodbye")
 }
 
 
